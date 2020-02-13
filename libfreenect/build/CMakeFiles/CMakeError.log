@@ -1,0 +1,20 @@
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/kevinleeor/Desktop/workspace/DepthMapping/libfreenect/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f4cd3/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f4cd3.dir/build.make CMakeFiles/cmTC_f4cd3.dir/build
+make[1]: Entering directory '/home/kevinleeor/Desktop/workspace/DepthMapping/libfreenect/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f4cd3.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -Wall -O2  -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_f4cd3.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_f4cd3
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f4cd3.dir/link.txt --verbose=1
+/usr/bin/cc -Wall -O2  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_f4cd3.dir/CheckFunctionExists.c.o  -o cmTC_f4cd3 -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_f4cd3.dir/build.make:97: recipe for target 'cmTC_f4cd3' failed
+make[1]: *** [cmTC_f4cd3] Error 1
+make[1]: Leaving directory '/home/kevinleeor/Desktop/workspace/DepthMapping/libfreenect/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_f4cd3/fast' failed
+make: *** [cmTC_f4cd3/fast] Error 2
+
+
