@@ -24,7 +24,7 @@ def main():
             
     #path = os.getcwd()
     path = '~/Desktop/maze-project'
-    img_file_name = 'maze_pic.jpeg'
+    img_file_name = 'maze_pic.png'
     csv_file_name = 'maze_csv.csv'
 
     # change to correct dir
