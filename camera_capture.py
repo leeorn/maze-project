@@ -3,5 +3,5 @@ import time
 
 camera = picamera.PiCamera()
 
-camera.capture('maze.jpg')
+camera.capture('maze_v2.jpg')
 camera.close()
