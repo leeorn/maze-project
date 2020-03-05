@@ -126,15 +126,16 @@ def color_path(img, node, w):
 #def main(file_name, resize_per, start_r, start_c, end_r, end_c):
     # load the image
 
-resize_per = 30
-start_r = 15
-start_c = 15
+resize_per = 50
+start_r = 100
+start_c = 100
 
-end_r = 
+end_r = 410
+end_c = 450
 
 
 
-pic = cv2.imread(file_name)
+pic = cv2.imread('maze.jpg')
 
     # resize it to X (resize_per) percent
 img_resized = resize(pic, resize_per)
