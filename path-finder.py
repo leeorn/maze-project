@@ -118,29 +118,38 @@ def color_path(img, node, w):
         n = n.prev
 
     # write the img to current folder
-    cv2.imwrite("maze_path.jpg", img_resized)
+    cv2.imwrite("maze.jpg", img_resized)
 
     return img
 
 
-def main(file_name, resize_per, start_r, start_c, end_r, end_c):
+#def main(file_name, resize_per, start_r, start_c, end_r, end_c):
     # load the image
-    pic = cv2.imread(file_name)
+
+resize_per = 30
+start_r = 15
+start_c = 15
+
+end_r = 
+
+
+
+pic = cv2.imread(file_name)
 
     # resize it to X (resize_per) percent
-    img_resized = resize(pic, resize_per)
+img_resized = resize(pic, resize_per)
 
     # recolor the maze to white and black
-    colored_img = recolor_img(img_resized.copy())
+colored_img = recolor_img(img_resized.copy())
 
     # find shortest path
-    n = shortest_path2(colored_img, start_r, start_c, end_r, end_c)
+n = shortest_path2(colored_img, start_r, start_c, end_r, end_c)
 
-    if n:
-        print("Found path")
+if n:
+    print("Found path")
 
         # show the image with the path
-        color_path(img_resized, n, 1)
+    color_path(img_resized, n, 1)
 
 
 # checks how the get arguments from the command line
