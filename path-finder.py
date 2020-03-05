@@ -83,7 +83,7 @@ def shortest_path(img, start_row, start_col, end_row, end_col):
         seen_q2[n.row_idx][n.col_idx] = 1
 
    # if reached here - no path was found
-        print("DIDN'T FIND PATH")
+    print("DIDN'T FIND PATH")
     return
 
 
@@ -138,12 +138,12 @@ def color_path(img, node, w):
 #def main(file_name, resize_per, start_r, start_c, end_r, end_c):
     # load the image
 
-resize_per = 50
-start_r = 100
-start_c = 100
+resize_per = 30
+start_r = 65
+start_c = 75
 
-end_r = 410
-end_c = 450
+end_r = 230
+end_c = 290
 
 
 
