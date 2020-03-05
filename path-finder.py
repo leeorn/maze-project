@@ -86,6 +86,18 @@ def shortest_path(img, start_row, start_col, end_row, end_col):
     print("DIDN'T FIND PATH")
     return
 
+
+def resize(img, per):
+    scale_percent = per  # percent of original size
+    width = int(img.shape[1] * scale_percent / 100)
+    height = int(img.shape[0] * scale_percent / 100)
+    dim = (width, height)
+
+    # resize image
+    resized = cv2.resize(img, dim, interpolation=cv2.INTER_AREA)
+
+    return resized
+
 # Recolor the image to white and black to make the pixel value more contrast
 # Takes the image
 # Returns the color imaged
