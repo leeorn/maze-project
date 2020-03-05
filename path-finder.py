@@ -138,12 +138,12 @@ def color_path(img, node, w):
 #def main(file_name, resize_per, start_r, start_c, end_r, end_c):
     # load the image
 
-resize_per = 30
-start_r = 65
-start_c = 75
+resize_per = 50
+start_r = 100
+start_c = 110
 
-end_r = 230
-end_c = 290
+end_r = 440
+end_c = 490
 
 
 
