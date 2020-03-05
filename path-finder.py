@@ -130,7 +130,7 @@ def color_path(img, node, w):
         n = n.prev
 
     # write the img to current folder
-    cv2.imwrite("maze.jpg", img_resized)
+    cv2.imwrite("maze-solved.jpg", img_resized)
 
     return img
 
