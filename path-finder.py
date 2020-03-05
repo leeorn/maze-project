@@ -45,7 +45,7 @@ def shortest_path(img, start_row, start_col, end_row, end_col):
     q = deque()
 
     # create a node object
-    node = Node(start_row, start_col, None, None)
+    node = Node(start_row, start_col, None)
     # append the first node to the queue
     q.append(node)
 
@@ -82,8 +82,8 @@ def shortest_path(img, start_row, start_col, end_row, end_col):
 
         seen_q2[n.row_idx][n.col_idx] = 1
 
-    # if reached here - no path was found
-    print("DIDN'T FIND PATH")
+    if reached here - no path was found
+        print("DIDN'T FIND PATH")
     return
 
 
@@ -126,7 +126,7 @@ def color_path(img, node, w):
 
     while n:
         # Color the pixel green
-        img[n.row_idx - w:n1.row_idx + w, n1.col_idx - w:n1.col_idx + w, :] = (0, 255, 0)
+        img[n.row_idx - w:n.row_idx + w, n.col_idx - w:n.col_idx + w, :] = (0, 255, 0)
         n = n.prev
 
     # write the img to current folder
@@ -156,7 +156,7 @@ img_resized = resize(pic, resize_per)
 colored_img = recolor_img(img_resized.copy())
 
     # find shortest path
-n = shortest_path2(colored_img, start_r, start_c, end_r, end_c)
+n = shortest_path(colored_img, start_r, start_c, end_r, end_c)
 
 if n:
     print("Found path")
@@ -166,10 +166,10 @@ if n:
 
 
 # checks how the get arguments from the command line
-if __name__ == 'main':
+# if __name__ == 'main':
     # TOOO
     # ask the user for start and end position
     # Show the start and end positions (color with red/blue)
     # If user is happy with the choice, continue to solve the maze
 
-    main() # TODO need to add parameters
+#    main() # TODO need to add parameters
