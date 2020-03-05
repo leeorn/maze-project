@@ -82,7 +82,7 @@ def shortest_path(img, start_row, start_col, end_row, end_col):
 
         seen_q2[n.row_idx][n.col_idx] = 1
 
-    if reached here - no path was found
+   # if reached here - no path was found
         print("DIDN'T FIND PATH")
     return
 
