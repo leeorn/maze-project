@@ -165,6 +165,8 @@ if n:
     color_path(img_resized, n, 1)
 
 
+### DELETE THIS LINE ###
+
 # checks how the get arguments from the command line
 # if __name__ == 'main':
     # TOOO
