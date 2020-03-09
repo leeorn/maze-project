@@ -31,7 +31,8 @@ def valid_move(img, row_idx, col_idx):
     return True
 
 
-# Node class, just initiate its variables
+# Node class, initiate its variables.
+# row and col are the index location in maze prev is the previous node
 class Node:
     def __init__(self, row, col, prev):
         self.row_idx = row
@@ -39,8 +40,8 @@ class Node:
         self.prev = prev
 
 
-# Find the shortest path between the starting point and end point
-# Takes the image, start row and column, and and row and column
+# Find the shortest path between the starting point and endpoint
+# Takes the image, start row and column, and row column
 # Returns the last node if found the path
 def shortest_path(img, start_row, start_col, end_row, end_col):
     # inite a queue (FIFO)
@@ -90,6 +91,9 @@ def shortest_path(img, start_row, start_col, end_row, end_col):
     return
 
 
+# Function to resize the image
+# Takes the image to be resized and by how much (what percent of original)
+# returns a pointer the the resized image
 def resize(img, per):
     scale_percent = per  # percent of original size
     width = int(img.shape[1] * scale_percent / 100)
@@ -124,7 +128,7 @@ def recolor_img(img):
 
 # Function to color the path from starting to ending position with width w
 # Takes the image, the last node and the width of the path want to color
-# Returns the image with colored path (green)
+# Returns the image with a colored path (green)
 def color_path(img, node, w):
     # color the path
     n = node
@@ -141,8 +145,8 @@ def color_path(img, node, w):
 
 
 # If a starting/ ending points are black at the beginning, the find path algo won't work.
-# This function confirms that the the points are valid (although they're hard coded points, light condition can change)
-# Takes the image and the list of tuple of start and end points
+# This function confirms that the points are valid (although they're hardcoded points, the light condition can change)
+# Takes the image and the list of tuples of start and endpoints
 def check_valid_pts(img, pt_list):
     black_threshold = np.array([100, 100, 100])
     valid_pts = []
