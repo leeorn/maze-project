@@ -204,8 +204,8 @@ def main(file_name, start_r, start_c, end_r, end_c):
 # name = take_pic()
 
 # ** Remove the below line when the pi camera is connect! **
-name = 'maze.jpg'
-# name = 'maze_v2.jpg'
+# name = 'maze.jpg'
+name = 'maze_v2.jpg'
 
 # loads the image
 pic = cv2.imread(name)
@@ -216,22 +216,41 @@ resize_percent = 30
 # resize it to X (resize_per) percent
 img_resized = resize(pic, resize_percent)
 
+# # define the starting and ending points, the values are the pixel location in the maze
+# # Point A (60,80)
+# pt_a_row = 60
+# pt_a_col = 80
+#
+# # Point B (120,285)
+# pt_b_row = 120
+# pt_b_col = 285
+#
+# # Point C (260, 290)
+# pt_c_row = 260
+# pt_c_col = 290
+#
+# # Point D (270, 230)
+# pt_d_row = 270
+# pt_d_col = 230
+
+
 # define the starting and ending points, the values are the pixel location in the maze
 # Point A (60,80)
-pt_a_row = 60
-pt_a_col = 80
+pt_a_row = 70
+pt_a_col = 100
 
 # Point B (120,285)
 pt_b_row = 120
-pt_b_col = 285
+pt_b_col = 305
 
 # Point C (260, 290)
-pt_c_row = 260
-pt_c_col = 290
+pt_c_row = 250
+pt_c_col = 305
 
 # Point D (270, 230)
 pt_d_row = 270
-pt_d_col = 230
+pt_d_col = 260
+
 
 # copy of the image
 img_copy = img_resized.copy()
