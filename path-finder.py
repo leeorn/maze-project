@@ -1,8 +1,8 @@
 # import libraries
 from collections import deque
-
 import cv2
 import numpy as np
+import sys
 
 
 # Check if the given index is a valid place to explore (inside the boundaries, and not a wall)
@@ -241,6 +241,7 @@ img_copy[pt_b_row:pt_b_row + 5, pt_b_col:pt_b_col + 5, :] = (255, 0, 0)
 img_copy[pt_c_row:pt_c_row + 5, pt_c_col:pt_c_col + 5, :] = (255, 0, 0)
 img_copy[pt_d_row:pt_d_row + 5, pt_d_col:pt_d_col + 5, :] = (255, 0, 0)
 
+
 # Show the user the options, and ask to choose a start and end point
 # writing text on the image
 font = cv2.FONT_HERSHEY_SIMPLEX
@@ -249,20 +250,19 @@ font_color = (0, 0, 255)
 line_type = 2
 
 # for 'A'
-location_of_a = (pt_a_row, pt_a_col)
+location_of_a = (pt_a_col, pt_a_row)
 cv2.putText(img_copy, 'A', location_of_a, font, font_scale, font_color)
 
 # for 'B'
-# location_of_b = (pt_b_row, pt_b_col)
-location_of_b = (120,285)
+location_of_b = (pt_b_col, pt_b_row)
 cv2.putText(img_copy, 'B', location_of_b, font, font_scale, font_color)
 
 # for 'C'
-location_of_c = (pt_c_row, pt_c_col)
+location_of_c = (pt_c_col, pt_c_row)
 cv2.putText(img_copy, 'C', location_of_c, font, font_scale, font_color)
 
 # for 'D'
-location_of_d = (pt_d_row, pt_d_col)
+location_of_d = (pt_d_col, pt_d_row)
 cv2.putText(img_copy, 'D', location_of_d, font, font_scale, font_color)
 
 print("Please choose starting and ending points, then close the window, and write you decision")
@@ -283,6 +283,8 @@ start_row = 0
 start_col = 0
 end_row = 0
 end_col = 0
+valid_start = True
+valid_end = True
 
 # check what start and end point the user gave
 if start == 'a':
@@ -294,9 +296,14 @@ elif start == 'b':
 elif start == 'c':
     start_row = pt_c_row
     start_col = pt_c_col
-else:
+elif start == 'd':
     start_row = pt_d_row
     start_col = pt_d_col
+else:
+    # print("Invalid input was provided. Please restart.")
+    # sys.exit()
+    valid_start = False
+
 
 if end == 'a':
     end_row = pt_a_row
@@ -307,9 +314,17 @@ elif end == 'b':
 elif end == 'c':
     end_row = pt_c_row
     end_col = pt_c_col
-else:
+elif end == 'd':
     end_row = pt_d_row
     end_col = pt_d_col
+else:
+    # print("Invalid input was provided. Please restart.")
+    # sys.exit()
+    valid_end = False
+
+if not valid_start or not valid_end:
+    print("Invalid inputs were given. Please start 2 different start and end point from the options")
+    sys.exit(-1)
 
 print("Working on finding the best path between these points...")
 
