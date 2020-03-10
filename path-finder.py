@@ -205,6 +205,7 @@ def main(file_name, start_r, start_c, end_r, end_c):
 
 # ** Remove the below line when the pi camera is connect! **
 name = 'maze.jpg'
+# name = 'maze_v2.jpg'
 
 # loads the image
 pic = cv2.imread(name)
@@ -300,8 +301,6 @@ elif start == 'd':
     start_row = pt_d_row
     start_col = pt_d_col
 else:
-    # print("Invalid input was provided. Please restart.")
-    # sys.exit()
     valid_start = False
 
 
@@ -318,8 +317,6 @@ elif end == 'd':
     end_row = pt_d_row
     end_col = pt_d_col
 else:
-    # print("Invalid input was provided. Please restart.")
-    # sys.exit()
     valid_end = False
 
 if not valid_start or not valid_end:
