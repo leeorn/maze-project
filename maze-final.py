@@ -9,6 +9,7 @@ import busio
 import adafruit_ads1x15.ads1115 as ADS
 from adafruit_ads1x15.analog_in import AnalogIn
 import time
+from PIL import Image
 
 # Check if the given index is a valid place to explore (inside the boundaries, and not a wall)
 # Takes in the image, and index for row and column
@@ -352,11 +353,12 @@ print("Working on finding the best path between these points...")
 path_img = main(img_resized, start_row, start_col, end_row, end_col)
 
 if np.any(path_img):
-    cv2.imshow("Maze-path", path_img)
+    Image.open('maze-solved.jpg').show()
+    #cv2.imshow("Maze-path", path_img)
 
     # wait to close the window
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+    #cv2.waitKey(0)
+    #cv2.destroyAllWindows()
 
 print("Done.")
 
@@ -398,18 +400,18 @@ def arduino_map(x, in_min, in_max, out_min, out_max):
 # Start main program with try/except to make use of keyboard interrupt
 try:
     # Let the user know the program is starting
-    print("Starting program.")
+    print("Starting maze control.")
 
     # Set the servos the centered position so they know how it looks like
     print("Setting servos to center position for reference.")
     pwm.setPWM(x_axis, 0, servoMid)
     pwm.setPWM(y_axis, 0, servoMid)
 
-    # Pause the program so that the user has time to notive
-    time.sleep(3)
-
     # Let the user know that the knob position needs to be centered or else the servos will not be centered.
     print("Set knobs to center position to keep servos centered.")
+
+    # Pause the program so that the user has time to notice
+    time.sleep(3)
 
     # The main program loop will now begin
     print("Ready for user control.")
@@ -428,10 +430,10 @@ try:
             position_y = arduino_map(y_pot, ADC_min, ADC_max, servoMax, servoMin)
 
             # Print out the ADC values for debugging purposes
-            print("ADC values (x,y):"+str(x_pot)+","+str(y_pot))
+            #print("ADC values (x,y):"+str(x_pot)+","+str(y_pot))
 
             # Print out the mapped servo values for debugging and for user viewing
-            print("Position in x-axis:"+str(position_x)+" Position in y-axis:"+str(position_y))
+            #print("Position in x-axis:"+str(position_x)+" Position in y-axis:"+str(position_y))
 
             # Send the mapped servo values to the motor hat
             pwm.setPWM(x_axis, 0, position_x)
@@ -445,3 +447,5 @@ try:
 except KeyboardInterrupt:
     print("Detected user interrupt.")
     print("Ending program.")
+    Image.close()
+
